@@ -9,8 +9,8 @@ socket.connect("tcp://0.0.0.0:5555")
 socket.setsockopt_string(zmq.SUBSCRIBE, "SYMBOL")
 
 df = pd.DataFrame()
-sma1 = 3
-sma2 = 9
+sma1 = 42
+sma2 = 252
 min_length = sma2 + 1
 
 while True:
@@ -22,13 +22,13 @@ while True:
     dr["returns"] = np.log(dr / dr.shift(1))
     if len(dr) > min_length:
         min_length += 1
-        dr['SMA1'] = dr['returns'].rolling(sma1).mean()
-        dr['SMA2'] = dr['returns'].rolling(sma2).mean()
-        dr['position'] = np.where(dr['SMA1'] > dr['SMA2'], 1, -1)
-        dr['strategy'] = dr['position'].shift(1) * dr['returns']
+        dr["SMA1"] = dr["returns"].rolling(sma1).mean()
+        dr["SMA2"] = dr["returns"].rolling(sma2).mean()
+        dr["position"] = np.where(dr["SMA1"] > dr["SMA2"], 1, -1)
+        dr["strategy"] = dr["position"].shift(1) * dr["returns"]
         dr.dropna(inplace=True)
-        dr['creturns'] = dr['returns'].cumsum().apply(np.exp)
-        dr['cstrategy'] = dr['strategy'].cumsum().apply(np.exp)
+        dr["creturns"] = dr["returns"].cumsum().apply(np.exp)
+        dr["cstrategy"] = dr["strategy"].cumsum().apply(np.exp)
         print("\n" + "=" * 51)
         print("NEW SIGNAL | {}".format(datetime.datetime.now()))
         print("=" * 51)
