@@ -1,7 +1,6 @@
 **/pyalgo.cfg
 **/*.pkl
 
-
 *.out
 *.cache/
 *.vscode
@@ -159,3 +158,7 @@ dmypy.json
 
 # Cython debug symbols
 cython_debug/
+
+# Scala
+.scala-build
+.tasty

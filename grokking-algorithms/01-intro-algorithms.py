@@ -18,7 +18,7 @@ numbers = list(range(0, 1000))
 
 
 # version with recursion
-def binary_search(numbers, n, start = None, end = None):
+def binary_search(numbers, n, start=None, end=None):
     if start is not None and start > end:
         return None
 
@@ -32,9 +32,9 @@ def binary_search(numbers, n, start = None, end = None):
     if mid_value == n:
         return mid
     elif mid_value < n:
-        return binary_search(numbers, n, start = mid + 1, end = end)
+        return binary_search(numbers, n, start=mid + 1, end=end)
     else:
-        return binary_search(numbers, n, start = start, end = mid - 1)
+        return binary_search(numbers, n, start=start, end=mid - 1)
 
 
 binary_search(numbers, 100)
@@ -82,5 +82,3 @@ log(256, 2)
 #
 # $O(n!)$: factorial time, a really slow algorithm, e.g. traveling salesperson.
 #
-
-
