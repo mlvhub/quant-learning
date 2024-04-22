@@ -1,19 +1,22 @@
 # ---
 # jupyter:
 #   jupytext:
+#     custom_cell_magics: kql
 #     text_representation:
 #       extension: .py
-#       format_name: light
-#       format_version: '1.5'
-#       jupytext_version: 1.16.1
+#       format_name: percent
+#       format_version: '1.3'
+#       jupytext_version: 1.11.2
 #   kernelspec:
 #     display_name: Python 3 (ipykernel)
 #     language: python
 #     name: python3
 # ---
 
+# %% [markdown]
 # ## Selection sort
 
+# %%
 def find_smallest(elems):
     smallest = elems[0]
     index = 0
@@ -24,10 +27,12 @@ def find_smallest(elems):
     return index
 
 
+# %%
 elems = [3,5,6,3,2,4,5,8,3]
 find_smallest(elems)
 
 
+# %%
 def selection_sort(elems):
     arr = []
 
@@ -38,4 +43,5 @@ def selection_sort(elems):
     return arr
 
 
+# %%
 selection_sort(elems)
