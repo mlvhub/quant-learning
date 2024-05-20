@@ -11,6 +11,7 @@ class DataHandler:
 
     def __init__(
         self,
+        api_key: str,
         symbol: str,
         start_date: Optional[str] = None,
         end_date: Optional[str] = None,
@@ -21,6 +22,7 @@ class DataHandler:
         self.start_date = start_date
         self.end_date = end_date
         self.provider = provider
+        obb.user.credentials.fmp_api_key = api_key
 
     def load_data(self) -> pd.DataFrame | dict[str, pd.DataFrame]:
         """Load equity data."""
