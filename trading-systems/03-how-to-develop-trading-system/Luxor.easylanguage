@@ -1,0 +1,65 @@
+{Copyright 2000. OMEGA RESEARCH, INC. MIAMI, FLORIDA.
+Strategy Trading and Development Club STAD, Volume 13,
+
+Modified 18 June 2006 and 15 July 2008 by Urban Jaekle
+Modified 1 January 2007 by Russell Stagg}
+
+{1. Definition of necessary inputs and variables}
+
+Inputs:
+    FastLength(3), {The input parameters for the two moving averages... }
+    SlowLength(30),
+    tset(1600), {...start time for the intraday time window filter...}
+    WindowDist(100); {...window distance for the intraday time window filter...}
+{... can be changed - this makes optimisation possible}
+
+Variables:
+    MP(0), Fast(0), Slow(0), GoLong(False), GoShort(False), BuyStop(0), SellStop(0), BuyLimit(0), SellLimit(0), tEnd(1700);
+
+MP = MarketPosition;
+
+{2. Time window filter; see below: 3.4, "Inserting an intraday time filter"}
+
+tend=tset+WindowDist; {time window if 1 hour}
+if time >= tset -5 and time < tend then begin
+
+{3. Definition of the moving averages and entry conditions}
+
+Fast=Average(Close,FastLength);
+Slow=Average(Close,SlowLength);
+
+GoLong = Fast > Slow;
+GoShort = Fast < Slow;
+
+{4. Entry setup}
+
+If Fast crosses above Slow then begin
+    BuyStop = High + 1 point;
+    BuyLimit = High + 5 points;
+end;
+
+if Fast crosses below Slow then begin
+    SellStop = Low - 1 point;
+    SellLimit = Low - 5 points;
+end;
+
+if GoLong and C < BuyLimit then
+    Buy ("Long") next bar at BuyStop stop;
+
+if GoShort and C > SellLimit then
+    Sell Short ("Short") next bar at SellStop stop;
+
+{5. Exits: Derived from the slow moving average. These exits are not used here since we take different 
+standard exits! Feel free to change the exits according to your needs}
+{If MP = 1 then begin
+    Sell next bar at Slow - 1 point Stop;
+end;
+If MP = -1 then begin
+    Buy to Cover next bar at Slow + 1 point Stop;
+end;
+
+if MP = -1 then begin
+    if C > Slow then
+        Buy to Cover ("Exit Short") next bar at Slow;
+end;}
+end;
