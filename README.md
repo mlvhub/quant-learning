@@ -7,7 +7,7 @@ Various resources for learning quantitative finance, trading, and machine learni
 1. Create a new folder for the project and `cd` into it
 2. Create a new virtual environment:
 ```bash
-pipenv install jupyter pandas polars python-dotenv matplotlib
+pipenv install jupyter pandas polars python-dotenv matplotlib numpy yfinance
 ```
 3. Run `pipenv shell` to activate the virtual environment
 4. Create a new `.env` file and add the necessary variables, if necessary

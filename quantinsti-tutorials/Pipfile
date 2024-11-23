@@ -8,6 +8,9 @@ jupyter = "*"
 pandas = "*"
 polars = "*"
 python-dotenv = "*"
+matplotlib = "*"
+numpy = "*"
+yfinance = "*"
 
 [dev-packages]
 
