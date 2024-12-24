@@ -12,3 +12,7 @@ pipenv install jupyter pandas polars python-dotenv matplotlib numpy yfinance
 3. Run `pipenv shell` to activate the virtual environment
 4. Create a new `.env` file and add the necessary variables, if necessary
 5. Run `jupyter notebook --no-browser` to start the Jupyter notebook server
+
+## TODO
+
+1. Migrate to `uv` for Python project management
