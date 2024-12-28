@@ -15,4 +15,4 @@ pipenv install jupyter pandas polars python-dotenv matplotlib numpy yfinance
 
 ## TODO
 
-1. Migrate to `uv` for Python project management
+1. Evaluate `uv` for Python project management and migrate if better than `pipenv`

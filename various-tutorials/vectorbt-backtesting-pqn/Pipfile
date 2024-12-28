@@ -5,14 +5,10 @@ name = "pypi"
 
 [packages]
 jupyter = "*"
-pandas = "*"
-polars = "*"
-python-dotenv = "*"
-matplotlib = "*"
 numpy = "*"
+scipy = "*"
+vectorbt = "*"
 yfinance = "*"
-tornado = "*"
-zipline-reloaded = "*"
 
 [dev-packages]
 
