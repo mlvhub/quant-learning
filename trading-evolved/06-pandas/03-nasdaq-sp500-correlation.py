@@ -9,7 +9,7 @@
 #       format_version: '1.3'
 #       jupytext_version: 1.11.2
 #   kernelspec:
-#     display_name: Python 3 (ipykernel)
+#     display_name: .venv
 #     language: python
 #     name: python3
 # ---
@@ -31,11 +31,11 @@ def get_returns(file):
 
 
 # %%
-df = get_returns('./06-pandas/sp500')
+df = get_returns('./sp500')
 df
 
 # %%
-df['NDX'] = get_returns('./06-pandas/ndx')
+df['NDX'] = get_returns('./ndx')
 df
 
 

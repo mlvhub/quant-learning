@@ -9,7 +9,7 @@
 #       format_version: '1.3'
 #       jupytext_version: 1.11.2
 #   kernelspec:
-#     display_name: Python 3 (ipykernel)
+#     display_name: .venv
 #     language: python
 #     name: python3
 # ---
@@ -21,7 +21,7 @@ import numpy as np
 
 
 # %%
-data = pd.read_csv('./06-pandas/sp500.csv', index_col='Date', parse_dates=['Date'])
+data = pd.read_csv('./sp500.csv', index_col='Date', parse_dates=['Date'])
 data
 
 # %%
@@ -36,12 +36,12 @@ data
 
 
 # %%
-# Buy a day delayed, shift the column 
+# Buy a day delayed, shift the column
 data['Position'] = data['Position'].shift()
 data
 
 # %%
-# Calculate the daily percent returns of strategy 
+# Calculate the daily percent returns of strategy
 data['StrategyPct'] = data['SP500'].pct_change(1) * data['Position']
 data
 
@@ -53,7 +53,7 @@ data
 
 
 # %%
-# Calculate index cumulative returns data[' BuyHold'] = (data[' SP500']. pct_change( 1) + 1). cumprod()
+# Calculate index cumulative returns
 data['BuyHold'] = (data['SP500'].pct_change(1) + 1).cumprod()
 data
 

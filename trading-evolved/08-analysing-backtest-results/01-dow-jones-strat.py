@@ -9,7 +9,7 @@
 #       format_version: '1.3'
 #       jupytext_version: 1.11.2
 #   kernelspec:
-#     display_name: Python 3 (ipykernel)
+#     display_name: .venv
 #     language: python
 #     name: python3
 # ---
@@ -115,5 +115,14 @@ result = run_algorithm(
 #
 # We should be looking to get good numbers, but more importantly, realistic numbers. If our backtest numbers look too good to be true, they probably are.
 # We are unlikely to compound over 15% per year over a long period of time. We are unlikely to have a Sharpe ratio of 1 or more and we will probably see maximum drawdowns of three times our annualised return. (These are just guidelines)
+
+# %%
+for column in result:
+    print( column)
+
+
+# %%
+result.loc[' 2010-11-17']
+
 
 # %%
